@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  auth-service:
+    image: auth-service-image:1.0
+    ports:
+      - "8081:8081"
+    deploy:
+      replicas: 3
+    networks:
+      - pestoecommerce_net
+
+  product-management-service:
+    image: product-management-service-image:1.0
+    ports:
+      - "8082:8082"
+    deploy:
+      replicas: 3
+    networks:
+      - pestoecommerce_net
+
+  order-processing-service:
+    image: order-processing-service-image:1.0
+    ports:
+      - "8083:8083"
+    deploy:
+      replicas: 3
+    networks:
+      - pestoecommerce_net
+
+networks:
+  pestoecommerce_net:
